@@ -16,6 +16,8 @@ services:
             - /home/mike/nas_mount/config/plex:/config
             - /home/mike/nas_mount/TV:/data/tvshows
             - /home/mike/nas_mount/Movies:/data/movies
+            - /home/mike/nas_mount/bond:/data/bond
+        network_mode: host
         ports:
             - 32469:32469
             - 32400:32400
@@ -40,7 +42,7 @@ services:
             - /home/mike/nas_mount/config/sonarr:/config
             - /etc/localtime:/etc/localtime:ro
             - /home/mike/nas_mount/TV:/tv
-            - /home/mike/nas_mount/Downloads/complete:/downloads
+            - /home/mike/nas_mount/Downloads/complete:/complete
         ports:
             - 8989:8989
         env_file: uidgid.env
@@ -81,7 +83,7 @@ services:
         volumes:
             - /home/mike/nas_mount/config/radarr:/config
             - /home/mike/nas_mount/Movies:/movies
-            - /home/mike/nas_mount/Downloads/complete:/downloads
+            - /home/mike/nas_mount/Downloads/complete:/complete
             - /etc/localtime:/etc/localtime:ro
         ports:
             - 7878:7878
